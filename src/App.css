@@ -26,3 +26,8 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.authors {
+  max-width: 200px;
+  max-height: 200px;
+}

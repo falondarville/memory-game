@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
 import Authors from './Components/authors.js';
 
+// authors rendered to page
 const authors = [
   {
     id: 1,
@@ -77,9 +78,7 @@ const authors = [
   }
 ];
 
-class App extends Component {
-  render() {
-    return (
+const App = () => (
       <div className="App">
         <nav className="navbar navbar-light bg-light">
           <span className="navbar-brand mb-0 h1">Memory Game</span>
@@ -102,8 +101,6 @@ class App extends Component {
             <Authors authors={authors}/>
         </div>
       </div>
-    );
-  }
-}
+);
 
 export default App;

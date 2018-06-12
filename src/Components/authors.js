@@ -81,9 +81,9 @@ export default class Authors extends Component {
 	shuffle(authors) {
 		for(let i = authors.length -1; i > 0; i--){
 			const j = Math.floor(Math.random() * (i + 1));
-	        [authors[i], authors[j]] = [authors[j], authors[i]];
-	        return authors;
+	        [authors[i], authors[j]] = [authors[j], authors[i]];  
 		}
+		return authors;
 	}
 	// cycle through images and display them in random order upon click of any image. 
 	handleClicked = (event) => {

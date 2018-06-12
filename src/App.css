@@ -32,3 +32,16 @@ p, span, .h1 {
   height: 200px;
   padding: 15px;
 }
+
+.jumbotron-fluid {
+  background-color: white;
+}
+
+.jumbo-row {
+  padding: 15px;
+  margin-top: 20px;
+}
+
+.scores {
+  background-color: lightgreen;
+}

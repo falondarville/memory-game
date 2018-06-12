@@ -85,31 +85,62 @@ export default class Authors extends Component {
 		}
 		return authors;
 	}
-	// cycle through images and display them in random order upon click of any image. 
+
 	handleClicked = (event) => {
-	// change Clicked on the item from false to true. If Clicked is already true, then the game should reset: points to 0, images shuffle, and Clicked on all items is changed to false. 
 		let authors = this.shuffle(this.state.authors);
 		this.setState({authors});
 
-		console.log("this was clicked");
+		let clicked = this.state.authors.clicked;
+		let clickStreak = this.state.clickStreak
+
+		if(clicked){
+			this.setState({ clickStreak: 0 })
+			// set all items to clicked: false
+			console.log("this was clicked before")
+		} else {
+			// add one point to clicked counter
+			clickStreak ++;
+			this.setState({clickStreak});
+			console.log("this wasn't clicked before")
+		}
 	}
 
 	constructor(){
 		super();
 		this.state = {
-			authors
-		}
+			authors,
+    		clickStreak: 0,
+    		topScore: 0
+  		}
 	}
 
 	render(){
 		return (
-			<div className="row">
-				{this.state.authors.map(author => (
-			    	<div className="col-sm-3" key={author.id} onClick={this.handleClicked}>
-			            <img className="authors" src={author.url} alt={author.alt}/>
-			        </div>
-			    ))}
-		    </div>
+			<div>
+				<div className="jumbotron-fluid">
+			        <div className="row jumbo-row">
+			          <div className="col-md-6">
+			            <p>Click on an image to begin. The goal of the game is to only click on images that you have not previously clicked on during that game. Don't click the same photo twice!</p>
+			          </div>
+			          <div className="col-md-6">
+			            <p><b>Bonus! Try naming all of the authors.</b></p>
+			            <span className="scores">
+			            <span>Current Score: {this.state.clickStreak}</span>
+			            <br />
+			            <span>Top Score: {this.state.topScore}</span>
+			            </span>
+			          </div>
+			          </div>
+			       </div>
+
+					<div className="row">
+						{this.state.authors.map(author => (
+					    	<div className="col-sm-3" key={author.id} onClick={this.handleClicked}>
+					            <img className="authors" src={author.url} alt={author.alt}/>
+					        </div>
+					    ))}
+				    </div>
+			    </div>
 		)
 	}
 }

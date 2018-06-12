@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import Authors from './Components/authors.js';
 
@@ -78,7 +78,19 @@ const authors = [
   }
 ];
 
-const App = () => (
+let clickStreak = 0;
+let topScore = 0;
+
+export default class App extends Component {
+
+  state = {
+    clickStreak,
+    topScore,
+    authors
+  }
+
+  render(){
+    return (
       <div className="App">
         <nav className="navbar navbar-light bg-light">
           <span className="navbar-brand mb-0 h1">Memory Game</span>
@@ -90,17 +102,17 @@ const App = () => (
           </div>
           <div className="col-md-6">
             <p><b>Bonus! Try naming all of the authors.</b></p>
-            <span>Current Score: </span>
+            <span>Current Score: {this.state.clickStreak}</span>
             <br />
-            <span>Top Score: </span>
+            <span>Top Score: {this.state.topScore}</span>
           </div>
           </div>
         </div>
         <div className="container">
             {/* author images will render here */}
-            <Authors authors={authors}/>
+            <Authors authors={this.state.authors}/>
         </div>
       </div>
-);
-
-export default App;
+      )
+  }
+}

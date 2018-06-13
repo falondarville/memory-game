@@ -1,7 +1,18 @@
 {
   "main.css": "static/css/main.927e0bfd.css",
   "main.css.map": "static/css/main.927e0bfd.css.map",
-  "main.js": "static/js/main.b495e40a.js",
-  "main.js.map": "static/js/main.b495e40a.js.map",
-  "static/media/murakami.png": "static/media/murakami.efd6e07a.png"
+  "main.js": "static/js/main.7d906423.js",
+  "main.js.map": "static/js/main.7d906423.js.map",
+  "static/media/angelou.png": "static/media/angelou.da61118c.png",
+  "static/media/austen.png": "static/media/austen.42b22bf4.png",
+  "static/media/frank.png": "static/media/frank.5962e811.png",
+  "static/media/gilman.png": "static/media/gilman.8f67ff07.png",
+  "static/media/hesse.png": "static/media/hesse.958bfb38.png",
+  "static/media/joyce.png": "static/media/joyce.bd1bffc3.png",
+  "static/media/marx.png": "static/media/marx.4d70637a.png",
+  "static/media/murakami.png": "static/media/murakami.efd6e07a.png",
+  "static/media/orwell.png": "static/media/orwell.dc2ffce6.png",
+  "static/media/stevenson.png": "static/media/stevenson.e3bdb04f.png",
+  "static/media/wells.png": "static/media/wells.aa06ddfe.png",
+  "static/media/wilde.png": "static/media/wilde.7436d332.png"
 }

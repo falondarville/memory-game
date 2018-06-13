@@ -74,11 +74,7 @@ export default class Authors extends Component {
 		return authors;
 	}
 
-	handleClicked = (event) => {
-		// add clicked images to array instead of using clicked true/false here
-		let clickedArray = [];
-
-		// this.getAuthorId(this.props.key);
+	handleClicked = (id) => {
 		// this rearranges the authors when an author is clicked
 		let authors = this.shuffle(this.state.authors);
 		this.setState({ authors });
@@ -87,12 +83,18 @@ export default class Authors extends Component {
 		let clickStreak = this.state.clickStreak;
 
 		// change if statement to check if image is in the clicked images array instead of clicked since clicked is no longer in the objects
-		if(clickStreak > 12){ 
-			this.setState({ clickStreak: 0 });
-			console.log("this was clicked before");
+    let checkAuthor = this.state.clickedArray.find(function(element){
+        return element.id === id;})
+    // if author is in the clickedArray, then run if
+		if(checkAuthor){ 
+			this.setState({ clickStreak: 0, clickedArray: [] });
 			// store total points from clickStreak and put them into an array. Then grab the largest number in the array and display it.
 		} else {
-			// if the image was not clicked previously (is not in the clickedArray), add a point to the clickStreak
+      // if image was not clicked before, add image to clickedArray
+      let currentAuthor = this.state.authors.find(function(element){
+        return element.id === id;})
+
+      this.state.clickedArray.push(currentAuthor);
 			clickStreak ++;
 			this.setState({ clickStreak });
 		}
@@ -103,7 +105,8 @@ export default class Authors extends Component {
 		this.state = {
 			authors,
     		clickStreak: 0,
-    		topScore: 0
+    		topScore: 0,
+        clickedArray: []
   		}
 	}
 
@@ -128,7 +131,7 @@ export default class Authors extends Component {
 
 					<div className="row">
 						{this.state.authors.map(author => (
-					    	<div className="col-sm-3" key={author.id} onClick={this.handleClicked}>
+					    	<div className="col-sm-3" key={author.id} onClick={() => this.handleClicked(author.id)}>
 					            <img className="authors" src={author.url} alt={author.alt}/>
 					        </div>
 					    ))}

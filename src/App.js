@@ -2,15 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Authors from './Components/authors.js';
 
-let clickStreak = 0;
-let topScore = 0;
-
 export default class App extends Component {
-
-  state = {
-    clickStreak,
-    topScore
-  }
 
   render(){
     return (

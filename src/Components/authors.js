@@ -89,6 +89,8 @@ export default class Authors extends Component {
 		if(checkAuthor){ 
 			this.setState({ clickStreak: 0, clickedArray: [] });
 			// store total points from clickStreak and put them into an array. Then grab the largest number in the array and display it.
+      this.state.topScoreArray.push(this.state.clickStreak);
+      this.state.topScore = Math.max(...this.state.topScoreArray);
 		} else {
       // if image was not clicked before, add image to clickedArray
       let currentAuthor = this.state.authors.find(function(element){
@@ -106,6 +108,7 @@ export default class Authors extends Component {
 			authors,
     		clickStreak: 0,
     		topScore: 0,
+        topScoreArray: [],
         clickedArray: []
   		}
 	}

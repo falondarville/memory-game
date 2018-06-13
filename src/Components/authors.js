@@ -86,21 +86,38 @@ export default class Authors extends Component {
 		return authors;
 	}
 
+	// getAuthorId(id) {
+	// 	// filter authors by the one clicked using the id. This will allow us to change Clicked state from false to true or else reset the game using the if statement below.
+	// 	// error states that id is not defined
+	// 	let currentAuthorId = this.state.authors.filter(author => author.id === id);
+	// 	this.setState = ({ currentAuthorId });
+	// 	return currentAuthorId;
+	// }
+
 	handleClicked = (event) => {
+
+		// this.getAuthorId(this.props.key);
+		// this rearranges the authors when an author is clicked
 		let authors = this.shuffle(this.state.authors);
-		this.setState({authors});
+		this.setState({ authors });
 
-		let clicked = this.state.authors.clicked;
-		let clickStreak = this.state.clickStreak
+		// this is meant to get the Clicked value of the current author, used to add logic to the if/else function
+		let clicked = this.state.currentAuthorId.clicked;
+		let clickStreak = this.state.clickStreak;
 
-		if(clicked){
-			this.setState({ clickStreak: 0 })
+		if(clicked){ 
+			// get the key of the image that was clicked
+			let currentKey = this.props.key
+			console.log(currentKey);
+			this.setState({ clickStreak: 0 });
+			this.setState({ clicked: true });
 			// set all items to clicked: false
 			console.log("this was clicked before")
+			// store total points from clickStreak and put them into an array. Then grab the largest number in the array and display it.
 		} else {
 			// add one point to clicked counter
 			clickStreak ++;
-			this.setState({clickStreak});
+			this.setState({ clickStreak });
 			console.log("this wasn't clicked before")
 		}
 	}
@@ -110,7 +127,8 @@ export default class Authors extends Component {
 		this.state = {
 			authors,
     		clickStreak: 0,
-    		topScore: 0
+    		topScore: 0,
+    		currentAuthorId: ''
   		}
 	}
 

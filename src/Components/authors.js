@@ -4,62 +4,63 @@ import React, { Component } from 'react';
 const authors = [
   {
     id: 1,
-    url: window.location.origin + "/images/murakami.png",
+    // url: require("/images/murakami.png",
+    url: require("../images/murakami.png"),
     alt: "Murakami"
   },
   {
     id: 2,
-    url: window.location.origin + "/images/austen.png",
+    url: require("../images/austen.png"),
     alt: "Austen"
   },
   {
     id: 3,
-    url: window.location.origin + "/images/wells.png",
+    url: require("../images/wells.png"),
     alt: "Wells"
   },
   {
     id: 4, 
-    url: window.location.origin + "/images/stevenson.png",
+    url: require("../images/stevenson.png"),
     alt: "Stevenson"
   },
   {
     id: 5,
-    url: window.location.origin + "/images/gilman.png",
+    url: require("../images/gilman.png"),
     alt: "Gilman"
   },
   {
     id: 6,
-    url: window.location.origin + "/images/orwell.png",
+    url: require("../images/orwell.png"),
     alt: "Orwell"
   },
   {
     id: 7,
-    url: window.location.origin + "/images/hesse.png",
+    url: require("../images/hesse.png"),
     alt: "Hesse"
   },
   {
     id: 8,
-    url: window.location.origin + "/images/wilde.png",
+    url: require("../images/wilde.png"),
     alt: "Wilde"
   },
   {
     id: 9,
-    url: window.location.origin + "/images/joyce.png",
+    url: require("../images/joyce.png"),
     alt: "Joyce"
   },
   {
     id: 10,
-    url: window.location.origin + "/images/marx.png",
+    url: require("../images/marx.png"),
     alt: "Marx"
   },
   {
     id: 11,
-    url: window.location.origin + "/images/angelou.png",
+    url: require("../images/angelou.png"),
     alt: "Angelou"
   },
   {
     id: 12,
-    url: window.location.origin + "/images/frank.png",
+    url: require("../images/frank.png"),
     alt: "Frank"
   }
 ];

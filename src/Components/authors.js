@@ -5,74 +5,62 @@ const authors = [
   {
     id: 1,
     url: window.location.origin + "/images/murakami.png",
-    alt: "Murakami",
-    clicked: false
+    alt: "Murakami"
   },
   {
     id: 2,
     url: window.location.origin + "/images/austen.png",
-    alt: "Austen",
-    clicked: false
+    alt: "Austen"
   },
   {
     id: 3,
     url: window.location.origin + "/images/wells.png",
-    alt: "Wells",
-    clicked: false
+    alt: "Wells"
   },
   {
     id: 4, 
     url: window.location.origin + "/images/stevenson.png",
-    alt: "Stevenson",
-    clicked: false
+    alt: "Stevenson"
   },
   {
     id: 5,
     url: window.location.origin + "/images/gilman.png",
-    alt: "Gilman", 
-    clicked: false
+    alt: "Gilman"
   },
   {
     id: 6,
     url: window.location.origin + "/images/orwell.png",
-    alt: "Orwell", 
-    clicked: false
+    alt: "Orwell"
   },
   {
     id: 7,
     url: window.location.origin + "/images/hesse.png",
-    alt: "Hesse",
-    clicked: false
+    alt: "Hesse"
   },
   {
     id: 8,
     url: window.location.origin + "/images/wilde.png",
-    alt: "Wilde",
-    clicked: false
+    alt: "Wilde"
   },
   {
     id: 9,
     url: window.location.origin + "/images/joyce.png",
-    alt: "Joyce",
-    clicked: false
+    alt: "Joyce"
   },
   {
     id: 10,
     url: window.location.origin + "/images/marx.png",
-    alt: "Marx",
-    clicked: false
+    alt: "Marx"
   },
   {
     id: 11,
     url: window.location.origin + "/images/angelou.png",
-    alt: "Angelou",
-    clicked: false
+    alt: "Angelou"
   },
   {
     id: 12,
     url: window.location.origin + "/images/frank.png",
-    alt: "Frank",
-    clicked: false
+    alt: "Frank"
   }
 ];
 
@@ -86,15 +74,9 @@ export default class Authors extends Component {
 		return authors;
 	}
 
-	// getAuthorId(id) {
-	// 	// filter authors by the one clicked using the id. This will allow us to change Clicked state from false to true or else reset the game using the if statement below.
-	// 	// error states that id is not defined
-	// 	let currentAuthorId = this.state.authors.filter(author => author.id === id);
-	// 	this.setState = ({ currentAuthorId });
-	// 	return currentAuthorId;
-	// }
-
 	handleClicked = (event) => {
+		// add clicked images to array instead of using clicked true/false here
+		let clickedArray = [];
 
 		// this.getAuthorId(this.props.key);
 		// this rearranges the authors when an author is clicked
@@ -102,23 +84,17 @@ export default class Authors extends Component {
 		this.setState({ authors });
 
 		// this is meant to get the Clicked value of the current author, used to add logic to the if/else function
-		let clicked = this.state.currentAuthorId.clicked;
 		let clickStreak = this.state.clickStreak;
 
-		if(clicked){ 
-			// get the key of the image that was clicked
-			let currentKey = this.props.key
-			console.log(currentKey);
+		// change if statement to check if image is in the clicked images array instead of clicked since clicked is no longer in the objects
+		if(clickStreak > 12){ 
 			this.setState({ clickStreak: 0 });
-			this.setState({ clicked: true });
-			// set all items to clicked: false
-			console.log("this was clicked before")
+			console.log("this was clicked before");
 			// store total points from clickStreak and put them into an array. Then grab the largest number in the array and display it.
 		} else {
-			// add one point to clicked counter
+			// if the image was not clicked previously (is not in the clickedArray), add a point to the clickStreak
 			clickStreak ++;
 			this.setState({ clickStreak });
-			console.log("this wasn't clicked before")
 		}
 	}
 
@@ -127,8 +103,7 @@ export default class Authors extends Component {
 		this.state = {
 			authors,
     		clickStreak: 0,
-    		topScore: 0,
-    		currentAuthorId: ''
+    		topScore: 0
   		}
 	}
 
